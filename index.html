@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexus</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <!-- Background -->
+  <div class="black-hole-bg"></div>
+
+  <!-- Auth Screens -->
+  <div id="authScreen" class="auth-screen-container">
+    <!-- Login -->
+    <div id="loginView" class="auth-card">
+      <h2>Enter the Nexus</h2>
+      <p>Transmit credentials to continue.</p>
+
+      <input type="text" id="loginUsername" class="text-input" placeholder="Username" autocomplete="username" />
+      <div class="password-container">
+        <input type="password" id="loginPassword" class="text-input" placeholder="Password" autocomplete="current-password" />
+        <button type="button" class="pass-toggle-btn" data-toggle="loginPassword">👁️</button>
+      </div>
+
+      <button class="btn-primary" id="loginBtn">Initiate Link</button>
+
+      <div class="auth-links">
+        <span class="link-text" data-view="register">New entity? Register</span>
+      </div>
+    </div>
+
+    <!-- Register -->
+    <div id="registerView" class="auth-card hidden">
+      <h2>Manifest Entity</h2>
+      <p>Create your identity in the Nexus.</p>
+
+      <div class="avatar-upload">
+        <label for="regAvatarFile">
+          <img id="regAvatarPreview" src="https://api.dicebear.com/7.x/identicon/svg?seed=new" alt="avatar" />
+          <input type="file" id="regAvatarFile" accept="image/*" hidden />
+          <span class="upload-hint">Upload Avatar</span>
+        </label>
+      </div>
+
+      <input type="text" id="regUsername" class="text-input" placeholder="Username (a-z, 0-9)" autocomplete="username" />
+      <input type="text" id="regDisplayName" class="text-input" placeholder="Display Name" />
+      <div class="password-container">
+        <input type="password" id="regPassword" class="text-input" placeholder="Password (min 8 chars)" autocomplete="new-password" />
+        <button type="button" class="pass-toggle-btn" data-toggle="regPassword">👁️</button>
+      </div>
+      <div class="password-container">
+        <input type="password" id="regConfirmPassword" class="text-input" placeholder="Confirm Password" autocomplete="new-password" />
+        <button type="button" class="pass-toggle-btn" data-toggle="regConfirmPassword">👁️</button>
+      </div>
+
+      <button class="btn-primary" id="registerBtn">Materialize</button>
+
+      <div class="auth-links">
+        <span class="link-text" data-view="login">Already exist? Log In</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main App Shell (empty for now) -->
+  <div id="appShell" class="app-shell hidden">
+    <div class="app-sidebar">
+      <div class="app-logo">🌌</div>
+      <nav class="app-nav">
+        <button class="nav-item active" data-nav="home">🏠 Home</button>
+        <button class="nav-item" data-nav="groups">👥 Groups</button>
+        <button class="nav-item" data-nav="activities">🎮 Activities</button>
+        <button class="nav-item" data-nav="skills">⚡ Skills</button>
+      </nav>
+    </div>
+    <div class="app-main">
+      <header class="app-header">
+        <h1 id="appHeaderTitle">Home</h1>
+        <div class="app-user">
+          <img id="appUserAvatar" src="" alt="" />
+          <span id="appUserName">-</span>
+          <button id="logoutBtn" class="btn-logout" title="Log Out">🚪</button>
+        </div>
+      </header>
+      <main id="appContent" class="app-content">
+        <div class="empty-state">
+          <h2>Welcome to Nexus</h2>
+          <p>This is the shell. Groups, chat, activities, and skills come next.</p>
+          <p class="muted">Logged in as <span id="welcomeUser">-</span></p>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script type="module" src="/js/auth.js"></script>
+</body>
+</html>
